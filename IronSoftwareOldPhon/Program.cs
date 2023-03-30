@@ -107,4 +107,56 @@ namespace IronSoftwareOldPhon
         }
 
     }
+    
+    [TestClass]
+    public class UnitTest1
+    {
+        [TestMethod]
+        public void TestSingleCharacterInput()
+        {
+            string input = "2#";
+            string expected = "A";
+            Assert.AreEqual(expected, Program.OldPhonePad(input));
+        }
+
+        [TestMethod]
+        public void TestMultipleCharacterInput()
+        {
+            string input = "225566#";
+            string expected = "BKN";
+            Assert.AreEqual(expected, Program.OldPhonePad(input));
+        }
+
+        [TestMethod]
+        public void TestInputWithSpaces()
+        {
+            string input = "2 22 555666 6#";
+            string expected = "ABLOM";
+            Assert.AreEqual(expected, Program.OldPhonePad(input));
+        }
+
+        [TestMethod]
+        public void TestInputWithRepeatedCharacters()
+        {
+            string input = "2#";
+            string expected = "A";
+            Assert.AreEqual(expected, Program.OldPhonePad(input));
+        }
+
+        [TestMethod]
+        public void TestInputWithInvalidCharacters()
+        {
+            string input = "23#";
+            string expected = "AD";
+            Assert.AreEqual(expected, Program.OldPhonePad(input));
+        }
+
+        [TestMethod]
+        public void TestInputWithStar()
+        {
+            string input = "2255*6#";
+            string expected = "BM";
+            Assert.AreEqual(expected, Program.OldPhonePad(input));
+        }
+    }
 }
